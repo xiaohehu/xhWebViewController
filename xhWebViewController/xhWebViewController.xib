@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="4510" systemVersion="12E55" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="xhWebViewController">
+            <connections>
+                <outlet property="activityIndicator" destination="dqz-UZ-NLd" id="AP8-Wo-ZgW"/>
+                <outlet property="ebTitle" destination="n5o-Sk-0Zo" id="iLe-HE-4dg"/>
+                <outlet property="view" destination="2" id="3"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzs-vy-K8A">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem title="Close" id="uNv-5V-2le">
+                            <connections>
+                                <action selector="dismissModal" destination="-1" id="7dI-xU-5gF"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="QeE-83-fFS"/>
+                        <barButtonItem title="&lt;" id="3f0-Vd-pqN">
+                            <connections>
+                                <action selector="webGoBack" destination="-1" id="MzF-VJ-pkJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title=">" id="IWb-l6-gZz">
+                            <connections>
+                                <action selector="webGoForward" destination="-1" id="w1N-Co-w4Y"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="refresh" id="C4D-YB-2km">
+                            <connections>
+                                <action selector="webRefresh" destination="-1" id="Dkk-fm-SCs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="stop" id="X36-6p-NtC">
+                            <connections>
+                                <action selector="webStop" destination="-1" id="I5Z-E7-1F1"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="action" id="mKM-ru-HLD">
+                            <connections>
+                                <action selector="callOutActSheet" destination="-1" id="KBk-zz-UCy"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5o-Sk-0Zo">
+                    <rect key="frame" x="356" y="4" width="312" height="36"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="dqz-UZ-NLd">
+                    <rect key="frame" x="494" y="365" width="37" height="37"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </activityIndicatorView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+</document>

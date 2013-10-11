@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "xhWebViewController.h"
+#import "AppDelegate.h"
 @interface ViewController : UIViewController
+{
+    
+}
 
+@property (nonatomic, weak) IBOutlet UIButton *webViewBtn;
+-(IBAction)showWebView:(id)sender;
 @end
