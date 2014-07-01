@@ -24,7 +24,69 @@
 	[self checkWireless];
 	[activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
 	[activityIndicator setHidesWhenStopped:YES];
+	UIToolbar* toolbar = [self createToolbar];
+	[self.view addSubview:toolbar];
+	
+	UILabel* webTitle = [self createWebLabel];
+	[self.view addSubview:webTitle];
+	webTitle.text = self.title;
 }
+
+-(UILabel*)createWebLabel
+{
+	UILabel *webTitle = [[UILabel alloc] initWithFrame:CGRectMake(354, 4, 512, 46)];
+	[webTitle setFont:[UIFont fontWithName:@"Futura" size:12]];
+	[webTitle setTextAlignment:NSTextAlignmentCenter];
+	float viewWidth = self.view.frame.size.width;
+	//float viewHeight = self.view.frame.size.height;
+	float labelWidth = webTitle.frame.size.width;
+	float labelHeight = webTitle.frame.size.height;
+	
+	float xpos = (viewWidth/2.0f) - (labelWidth/2.0f);
+	//float ypos = (viewHeight/2.0f) - (labelHeight/2.0f);
+	
+	[webTitle setFrame:CGRectMake(xpos,0,labelWidth,labelHeight)];
+	
+	return webTitle;
+}
+
+- (UIToolbar*)createToolbar
+{
+    UIToolbar* toolbar = [[UIToolbar alloc] init];
+    toolbar.frame = CGRectMake(0, 0, self.view.frame.size.width, 44);
+	
+	// buttons
+	UIBarButtonItem *closeButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
+																				target:self
+																				action:@selector(dismissModal)];
+	UIBarButtonItem *flexButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+																				target:self
+																				action:nil];
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"<"
+																   style:UIBarButtonItemStylePlain
+																  target:self
+																  action:@selector(webGoBack)];
+	UIBarButtonItem *forwardButton = [[UIBarButtonItem alloc] initWithTitle:@">"
+																	  style:UIBarButtonItemStylePlain
+																	 target:self
+																	 action:@selector(webGoForward)];
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																				   target:self
+																				   action:@selector(webRefresh)];
+	UIBarButtonItem *stopButton = [[UIBarButtonItem alloc] initWithTitle:@"X"
+																   style:UIBarButtonItemStylePlain
+																  target:self
+																  action:@selector(webStop)];
+	
+	UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
+																				 target:self
+																				 action:@selector(callOutActSheet)];
+	
+    NSArray *buttonItems = [NSArray arrayWithObjects:closeButton,flexButton,backButton,forwardButton,refreshButton,stopButton, shareButton,nil];
+    [toolbar setItems:buttonItems];
+    return toolbar;
+}
+
 
 -(void)checkWireless {
     
